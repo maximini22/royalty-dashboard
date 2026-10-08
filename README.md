@@ -26,7 +26,8 @@ Amounts in different currencies (DistroKid USD, APRA and AMCOS AUD and NZD) are 
 
 ## Run it
 
-1. Clone or download this repository.
+1. Clone or download this repository:
+   `git clone https://github.com/maximini22/royalty-dashboard.git`
 2. Open `index.html` in a browser. No install or build step.
 3. Drop your exports onto the page, or choose **Try with demo data**.
 
