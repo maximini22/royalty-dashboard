@@ -1,4 +1,4 @@
-/* Royalty Dashboard · Jeremy Legal Records · MIT */
+/* Royalty Dashboard · MIT */
 (function () {
   'use strict';
 
@@ -775,12 +775,12 @@
   function loadDemo() {
     if (busy) return;
     var go = function () {
-      var d = window.JLR_DEMO;
+      var d = window.RD_DEMO;
       if (!d || !d.files) { status('Demo data could not be loaded.', true); return; }
       reset();
       ingest(d.files.map(function (f) { return { name: f.name, get: function () { return Promise.resolve(f.b64 ? b64ToBuf(f.b64) : f.text); } }; }), true);
     };
-    if (window.JLR_DEMO) { go(); return; }
+    if (window.RD_DEMO) { go(); return; }
     status('Loading demo data…');
     var s = document.createElement('script');
     s.src = 'demo/demo-pack.js';
@@ -841,4 +841,5 @@
     clearTimeout(rt); rt = setTimeout(function () { lastW = window.innerWidth; if (hasData()) render(); }, 200);
   });
   render();
+  if (/[?&]demo=1(&|$)/.test(location.search)) loadDemo();
 })();

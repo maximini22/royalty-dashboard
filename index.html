@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
-<title>Royalty Dashboard · Jeremy Legal Records</title>
-<meta name="description" content="Royalty Dashboard by Jeremy Legal Records. Your files are read in your browser and never uploaded.">
+<title>Royalty Dashboard</title>
+<meta name="description" content="Royalty Dashboard. Your files are read in your browser and never uploaded.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="assets/jlr-header-logo.png">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b1220">
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="https://jeremylegalrecords.com/" aria-label="Jeremy Legal Records home">
-      <img src="assets/jlr-header-logo.png" alt="" width="107" height="160">
-      <span class="serif">JEREMY LEGAL RECORDS</span>
+    <a class="brand" href="./" aria-label="Royalty Dashboard">
+      <img src="assets/icon.svg" alt="" width="32" height="32">
+      <span class="brand-title">Royalty <span class="t">Dashboard</span></span>
     </a>
-    <span class="appname mono">Royalty Dashboard</span>
+    <span class="spacer"></span>
     <span id="demoTag" class="tag mono" hidden>Demo data</span>
     <button id="filesBtn" class="btn sm mono" type="button" hidden>Files</button>
   </div>
@@ -27,8 +28,8 @@
 <main>
   <section id="empty" class="empty">
     <div class="wrap">
-      <p class="kicker mono">Jeremy Legal Records</p>
-      <h1 class="serif">Royalty Dashboard <span class="tag beta mono">Beta</span></h1>
+      <p class="kicker mono"><span class="tag beta mono">Beta</span></p>
+      <h1 class="serif">Royalty <span class="t">Dashboard</span></h1>
       <p class="sub">Read in your browser. Nothing uploaded.</p>
       <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose files or drop them here">
         <div class="drop-in">
@@ -53,10 +54,10 @@
   <section id="dash" class="dash" hidden>
     <nav class="tabs" aria-label="Views">
       <div class="wrap tabs-in">
-        <button class="tab mono" data-tab="money" type="button"><span class="ico" aria-hidden="true">$</span>Money</button>
-        <button class="tab mono" data-tab="market" type="button"><span class="ico" aria-hidden="true">◎</span>Market</button>
-        <button class="tab mono" data-tab="song" type="button"><span class="ico" aria-hidden="true">♪</span>Song</button>
-        <button class="tab mono" data-tab="register" type="button"><span class="ico" aria-hidden="true">☰</span>Register</button>
+        <button class="tab mono" data-tab="money" type="button"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Money</button>
+        <button class="tab mono" data-tab="market" type="button"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>Market</button>
+        <button class="tab mono" data-tab="song" type="button"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>Song</button>
+        <button class="tab mono" data-tab="register" type="button"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Register</button>
       </div>
     </nav>
     <div class="wrap">
@@ -85,7 +86,7 @@
 
 <footer>
   <div class="wrap">
-    <span>By ROBBIE P / Jeremy Legal Records · <a href="https://jeremylegalrecords.com/">jeremylegalrecords.com</a></span>
+    <span>By ROBBIE P / Jeremy Legal Records</span>
     <span>Files stay in your browser · No cookies · Code MIT · <a href="vendor/LICENSE-SheetJS.txt">SheetJS</a> · <a href="vendor/LICENSE-PapaParse.txt">Papa Parse</a></span>
   </div>
 </footer>

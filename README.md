@@ -1,7 +1,5 @@
 # Royalty Dashboard (beta)
 
-By ROBBIE P / Jeremy Legal Records.
-
 A dashboard for music royalty exports that runs in your browser. Load your files and it shows:
 
 - **Money**: totals by source and currency, earnings by month, a song rank, APRA AMCOS payouts by statement and by work
@@ -35,7 +33,7 @@ You can also serve the folder from any static web server.
 
 ## Demo data
 
-`demo/` holds the Jeremy Legal demo pack. Every name, title, code and amount in it is fictional.
+`demo/` holds a demo pack. Every name, title, code and amount in it is fictional.
 
 - `demo/distrokid/`, `demo/apra-amcos/`, `demo/ppca/`: the demo files, in the same formats as the real exports
 - `demo/jeremy-legal-demo-pack.zip`: the same pack as one download
@@ -53,5 +51,7 @@ MIT. See `LICENSE`.
 
 - SheetJS Community Edition: Apache-2.0, `vendor/LICENSE-SheetJS.txt`
 - Papa Parse: MIT, `vendor/LICENSE-PapaParse.txt`
-- Fonts (Ibarra Real Nova, Kode Mono, Wix Madefor Display): SIL Open Font License 1.1, `assets/fonts/`
-- The Jeremy Legal Records logo (`assets/jlr-header-logo.png`) is not covered by the MIT licence. All rights reserved.
+
+---
+
+By ROBBIE P / Jeremy Legal Records
