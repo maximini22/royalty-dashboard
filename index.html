@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Royalty Dashboard · Jeremy Legal Records</title>
+<meta name="description" content="Royalty Dashboard by Jeremy Legal Records. Your files are read in your browser and never uploaded.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/jlr-header-logo.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://jeremylegalrecords.com/" aria-label="Jeremy Legal Records home">
+      <img src="assets/jlr-header-logo.png" alt="" width="107" height="160">
+      <span class="serif">JEREMY LEGAL RECORDS</span>
+    </a>
+    <span class="appname mono">Royalty Dashboard</span>
+    <span id="demoTag" class="tag mono" hidden>Demo data</span>
+    <button id="filesBtn" class="btn sm mono" type="button" hidden>Files</button>
+  </div>
+</header>
+
+<main>
+  <section id="empty" class="empty">
+    <div class="wrap">
+      <p class="kicker mono">Jeremy Legal Records</p>
+      <h1 class="serif">Royalty Dashboard <span class="tag beta mono">Beta</span></h1>
+      <p class="sub">Read in your browser. Nothing uploaded.</p>
+      <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose files or drop them here">
+        <div class="drop-in">
+          <strong class="serif">Drop your exports here</strong>
+          <span class="mono small">DistroKid · APRA AMCOS · PPCA</span>
+          <div class="ctas">
+            <button id="pickBtn" class="btn solid mono" type="button">→ Choose files</button>
+            <button id="demoBtn" class="btn mono" type="button">→ Try with demo data</button>
+          </div>
+        </div>
+      </div>
+      <ul class="accepts">
+        <li><b>DistroKid</b> all-time earnings CSV</li>
+        <li><b>APRA AMCOS</b> royalty statements (AUS, NZ), Works List, source categories</li>
+        <li><b>PPCA</b> repertoire</li>
+      </ul>
+      <p class="small mute"><a class="mono dl" href="demo/jeremy-legal-demo-pack.zip" download>↓ Download demo pack</a> <span class="mute">· fictional data</span></p>
+      <p id="status" class="status mono" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="dash" class="dash" hidden>
+    <nav class="tabs" aria-label="Views">
+      <div class="wrap tabs-in">
+        <button class="tab mono" data-tab="money" type="button"><span class="ico" aria-hidden="true">$</span>Money</button>
+        <button class="tab mono" data-tab="market" type="button"><span class="ico" aria-hidden="true">◎</span>Market</button>
+        <button class="tab mono" data-tab="song" type="button"><span class="ico" aria-hidden="true">♪</span>Song</button>
+        <button class="tab mono" data-tab="register" type="button"><span class="ico" aria-hidden="true">☰</span>Register</button>
+      </div>
+    </nav>
+    <div class="wrap">
+      <div id="range" class="range"></div>
+      <div id="view" class="view"></div>
+    </div>
+  </section>
+
+  <div id="filesPanel" class="panel" hidden>
+    <div class="panel-in">
+      <div class="panel-head">
+        <h2 class="serif">Files</h2>
+        <button id="closeFiles" class="btn sm mono" type="button">Close</button>
+      </div>
+      <p class="small mute">Read in this browser tab only. Close or reload the tab to clear.</p>
+      <div id="filesList"></div>
+      <div class="ctas">
+        <button id="addBtn" class="btn solid sm mono" type="button">+ Add files</button>
+        <button id="clearBtn" class="btn sm mono" type="button">Clear all</button>
+      </div>
+    </div>
+  </div>
+  <div id="dropOverlay" class="overlay" hidden><span class="serif">Drop to add</span></div>
+  <input id="picker" type="file" multiple accept=".csv,.tsv,.txt,.xlsx,.xls" hidden>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>By ROBBIE P / Jeremy Legal Records · <a href="https://jeremylegalrecords.com/">jeremylegalrecords.com</a></span>
+    <span>Files stay in your browser · No cookies · Code MIT · <a href="vendor/LICENSE-SheetJS.txt">SheetJS</a> · <a href="vendor/LICENSE-PapaParse.txt">Papa Parse</a></span>
+  </div>
+</footer>
+<script src="vendor/papaparse.min.js"></script>
+<script src="vendor/xlsx.mini.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
