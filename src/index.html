@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'" />
+<meta name="referrer" content="no-referrer" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0b1220" />
+<meta name="color-scheme" content="dark" />
+<title>Royalty Dashboard</title>
+<link rel="icon" type="image/png" href="{{LOGO}}" />
+<style>
+{{CSS}}
+</style>
+</head>
+<body class="no-data tab-money">
+<div class="shell">
+  <div class="side">
+  <header class="app-header">
+    <div class="brand">
+      <img class="logo-mark" src="{{LOGO}}" alt="" width="107" height="160" />
+      <div class="brand-title">
+        <span class="w" id="brand-artist" hidden></span><span class="nw"><span class="dot" id="brand-dot" hidden>•</span><span class="t">Royalty Dashboard</span></span>
+      </div>
+      <div class="brand-tools">
+        <button type="button" class="icon-btn" id="files-btn" aria-label="Files" title="Files">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          <span class="demo-tag" id="demo-tag" hidden>Demo</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="lookup-wrap">
+    <input id="lookup-input" class="search" type="search" placeholder="Title, ISRC, UPC, PPL, GW" autocomplete="off" enterkeyhint="search" />
+    <div class="suggest" id="suggest"></div>
+    <div class="range-row">
+      <div>
+        <label for="month-from">From</label>
+        <select id="month-from"></select>
+      </div>
+      <div>
+        <label for="month-to">To</label>
+        <select id="month-to"></select>
+      </div>
+    </div>
+    <div class="presets">
+      <button type="button" data-preset="all" class="on"><span>All time</span></button>
+      <button type="button" data-preset="12"><span>Last 12 mo</span></button>
+      <button type="button" data-preset="year"><span id="preset-year">This year</span></button>
+    </div>
+    <div class="quarters">
+      <div class="q-head">
+        <span class="q-lab">APRA AMCOS payout quarters</span>
+        <select id="q-year" aria-label="Payout year"></select>
+      </div>
+      <div class="q-chips"></div>
+      <div class="q-hint" id="q-hint"></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Windows">
+    <button type="button" data-tab="money" class="on">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15l5-5 4 4 7-7"/><path d="M14 7h6v6"/></svg>
+      Money
+    </button>
+    <button type="button" data-tab="market">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+      Market
+    </button>
+    <button type="button" data-tab="song">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V6l12-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      Song
+    </button>
+    <button type="button" data-tab="register">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Register
+    </button>
+  </nav>
+  </div>
+
+  <section id="loader" aria-label="Load your files">
+    <h1 class="ld-h">Royalty <span class="t">Dashboard</span></h1>
+    <p class="ld-sub">Read in your browser. Nothing uploaded.</p>
+    <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose files or drop them here">
+      <strong>Drop your exports here</strong>
+      <span class="small">DistroKid · SoundCloud · APRA AMCOS · PPCA</span>
+      <div class="ld-ctas">
+        <button id="pick-btn" class="btn solid" type="button">Choose files</button>
+        <button id="demo-btn" class="btn" type="button">Try with demo data</button>
+      </div>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <ul class="accepts">
+      <li><b>DistroKid</b> all-time earnings CSV, Instagram/Facebook TSV</li>
+      <li><b>SoundCloud</b> lifetime earnings report CSV</li>
+      <li><b>APRA AMCOS</b> royalty statements (AUS, NZ), Works List, source categories</li>
+      <li><b>PPCA</b> repertoire</li>
+    </ul>
+    <div class="ld-links"><a href="#" id="demo-zip">Download demo pack</a><span class="small" style="color:var(--muted)">fictional data</span></div>
+    <p class="credit">By ROBBIE P / Jeremy Legal Records · Files stay in your browser · No cookies · Code MIT · SheetJS Community Edition (Apache-2.0) · Papa Parse (MIT)</p>
+  </section>
+
+  <main>
+    <section class="panel active" id="panel-money">
+      <div class="paid-block">
+        <div class="lab">PAID TOTAL</div>
+        <div class="amt" id="paid-amt">$0.00</div>
+        <div class="cur">USD</div>
+      </div>
+      <div class="sec-lab">FAMILY RANK</div>
+      <div class="fam-list" id="money-list"></div>
+    </section>
+
+    <section class="panel" id="panel-market"></section>
+    <section class="panel" id="panel-song"></section>
+    <section class="panel" id="panel-register"></section>
+  </main>
+</div>
+
+<div id="files-sheet" class="sheet-bg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="files-h">
+    <div class="sheet-head">
+      <h2 id="files-h">Files</h2>
+      <button id="files-close" class="pill-btn" type="button"><span>Close</span></button>
+    </div>
+    <p class="small">Read in this browser tab only. Close or reload the tab to clear.</p>
+    <div id="files-list" class="fl"></div>
+    <div class="ld-ctas">
+      <button id="add-btn" class="btn solid" type="button">Add files</button>
+      <button id="clear-btn" class="btn" type="button">Clear all</button>
+    </div>
+    <p class="credit">By ROBBIE P / Jeremy Legal Records · Code MIT · SheetJS Community Edition (Apache-2.0) · Papa Parse (MIT)</p>
+  </div>
+</div>
+<div id="drop-overlay" class="overlay" hidden>Drop to add</div>
+<input id="picker" type="file" multiple accept=".csv,.tsv,.txt,.xlsx,.xls,.zip" hidden />
+
+<script>
+{{VENDOR}}
+</script>
+<script>
+window.RD_DEMO_ZIP = "{{DEMO_ZIP_B64}}";
+</script>
+<script>
+{{APP}}
+</script>
+</body>
+</html>
